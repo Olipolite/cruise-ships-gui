@@ -1,18 +1,10 @@
-const ship = new Ship("shipTom");
-
-function Ship(name) {
+function Ship(name, port) {
   this.name = name;
-  this.startingPort = "Stockholm";
+  this.currentPort = port;
 }
 
 Ship.prototype.setSail = function () {
-  return (this.startingPort = false);
+  return (this.currentPort = false);
 };
-//class Ship {
-//constructor(name) {
-//this.name = name;
-//this.startingPort = "Stockholm";
-//}
-//}
 
 module.exports = Ship;
