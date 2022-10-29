@@ -8,4 +8,8 @@ Ship.prototype = {
   },
 };
 
+Ship.prototype.dock = function (port) {
+  this.currentPort = port;
+};
+
 module.exports = Ship;
