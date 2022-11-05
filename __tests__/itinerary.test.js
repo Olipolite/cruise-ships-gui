@@ -6,9 +6,9 @@ describe("constructorItinerary", () => {
     expect(new Itinerary()).toBeInstanceOf(Object);
   });
 
-  it("Itinerary has a ports property", () => {
-    const stockholm = new Port("Stockholm");
-    const helsinki = new Port("Helsinki");
+  it("can have ports", () => {
+    const stockholm = jest.fn();
+    const helsinki = jest.fn();
 
     const itinerary = new Itinerary([stockholm, helsinki]);
 

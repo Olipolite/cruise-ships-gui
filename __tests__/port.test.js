@@ -16,8 +16,8 @@ describe("Port methods ",() => {
   let queenMary;
   beforeEach(() => {
     port = new Port("Stockholm")
-    titanic = {};
-    queenMary = {}
+    titanic = jest.fn();
+    queenMary = jest.fn();
   });
 
   it("returns the object port", () => {
