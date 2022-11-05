@@ -4,14 +4,25 @@ const Itinerary = require("../src/itinerary");
 
 describe("Ship", () => {
   describe("with ports and an itinerary", () => {
-    let ship;
+
     let stockholm;
     let helsinki;
-    let itinerary;
 
     beforeEach(() => {
-      stockholm = new Port("Stockholm");
-      helsinki = new Port("Helsinki");
+      stockholm = {
+        addShip: jest.fn(),
+        removeShip: jest.fn(),
+        name: "Stockholm",
+        ships: []
+      };
+
+      helsinki = {
+        addShip: jest.fn(),
+        removeShip: jest.fn(),
+        name: "Helsinki",
+        ships: []
+      };
+
       itinerary = new Itinerary([stockholm, helsinki]);
       ship = new Ship(itinerary);
     });
@@ -21,44 +32,37 @@ describe("Ship", () => {
     });
   
     it("gets added to port on instantiation", () => {
-      expect(stockholm.ships).toContain(ship);
+      expect(stockholm.addShip).toHaveBeenCalledWith(ship);
     });
   
     it("has a starting port", () => {
       expect(ship.currentPort).toBe(stockholm);
     });
   
-    it("sets sail from currentPort", () => {
+    it("can set sail", () => {
+
       ship.setSail();
   
       expect(ship.currentPort).toBeFalsy();
-      expect(stockholm.ships).not.toContain(ship);
+      expect(stockholm.removeShip).toHaveBeenCalledWith(ship);
     });
-  });
-  
-  it("can dock at a different port", () => {
-    const stockholm = new Port("Stockholm");
-    const helsinki = new Port("Helsinki");
-    const itinerary = new Itinerary([stockholm, helsinki]);
-    const ship = new Ship(itinerary);
 
-    ship.setSail();
-    ship.dock();
+    it("can dock at a different port", () => {
 
-    expect(ship.currentPort).toBe(helsinki);
-    expect(helsinki.ships).toContain(ship);
-  });
+      ship.setSail();
+      ship.dock();
+    
+      expect(ship.currentPort).toBe(helsinki);
+      expect(helsinki.addShip).toHaveBeenCalledWith(ship);
+    });
+    
+    it("throws error if sails further than its itinerary", () => {
 
-  it("throws error if sails further than its itinerary", () => {
-    const stockholm = new Port("Stockholm");
-    const helsinki = new Port("Helsinki");
-    const itinerary = new Itinerary([stockholm, helsinki]);
-    const ship = new Ship(itinerary);
-
-    ship.setSail();
-    ship.dock();
-
-    expect(() => ship.setSail()).toThrowError("End of itinerary reached");
+      ship.setSail();
+      ship.dock();
+    
+      expect(() => ship.setSail()).toThrowError("End of itinerary reached");
+    });
   });
 });
   

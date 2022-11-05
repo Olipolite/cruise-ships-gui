@@ -14,7 +14,7 @@ Ship.prototype = {
       throw new Error("End of itinerary reached");
     }
 
-    this.currentPort.removeShip();
+    this.currentPort.removeShip(ship);
     this.previousPort = this.currentPort;
     this.currentPort = null;
   },

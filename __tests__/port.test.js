@@ -31,7 +31,6 @@ describe("Port methods ",() => {
     expect(port.ships).toContain(titanic, queenMary);
   });
   
-
   it("remove ships from Port", () => {
     port.addShip(titanic);
     port.addShip(queenMary);
