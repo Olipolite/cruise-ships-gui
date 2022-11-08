@@ -1,6 +1,4 @@
 const Port = require("../src/port");
-const Ship = require("../src/ships")
-const Itinerary = require("../src/itinerary")
 
 describe("Port name", () => {
   it("returns the name of the port", () => {

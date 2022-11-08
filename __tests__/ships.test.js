@@ -1,6 +1,5 @@
 const Ship = require("../src/ships");
 
-
 describe("Ship", () => {
   describe("with ports and an itinerary", () => {
 
