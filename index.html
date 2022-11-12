@@ -25,8 +25,9 @@
         new Port("Copenhagen"),
         new Port("Oslo"),
       ]);
-      controller.renderPorts(itinerary.ports);
       const ship = new Ship(itinerary);
+      controller.renderPorts(itinerary.ports);
+      controller.renderShip(ship);
     </script>
   </body>
 </html>
