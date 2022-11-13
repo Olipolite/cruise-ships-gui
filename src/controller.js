@@ -4,6 +4,9 @@
 
     this.initialiseSea();
 
+    const smile = document.createTextNode(this.ship.itinerary.ports[0]);
+    document.getElementById("display").appendChild(smile);
+
     document.querySelector("#sailbutton").addEventListener("click", () => {
       this.setSail();
     });

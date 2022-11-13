@@ -3,6 +3,14 @@ body {
   height: 100%;
 }
 
+#display {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: white;
+  font-family: "Press Start 2P", cursive;
+}
+
 body {
   background-color: black;
   display: flex;
