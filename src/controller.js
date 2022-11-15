@@ -71,21 +71,26 @@
       `[data-port-index="${nextPortIndex}"]`
     );
 
-    if (!nextPortElement) {
-      return alert("End of the line!");
-    }
-
     const shipElement = document.querySelector("#ship");
     const sailInterval = setInterval(() => {
       const shipLeft = parseInt(shipElement.style.left, 10);
       if (shipLeft === nextPortElement.offsetLeft - 32) {
         ship.setSail();
         ship.dock();
+
+        let text = (document.getElementById(
+          "displayOne"
+        ).textContent = `Current Port:${ship.currentPort.name}`);
+
         clearInterval(sailInterval);
       }
 
       shipElement.style.left = `${shipLeft + 1}px`;
     }, 20);
+
+    if (!nextPortElement) {
+      return alert("End of the line!");
+    }
   };
 
   if (typeof module !== "undefined" && module.exports) {
