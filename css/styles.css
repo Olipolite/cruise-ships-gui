@@ -3,9 +3,17 @@ body {
   height: 100%;
 }
 
-#display {
+#displayOne {
   position: absolute;
   top: 0;
+  right: 0;
+  color: white;
+  font-family: "Press Start 2P", cursive;
+}
+
+#displayTwo {
+  position: absolute;
+  top: 20px;
   right: 0;
   color: white;
   font-family: "Press Start 2P", cursive;

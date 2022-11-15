@@ -4,13 +4,24 @@
 
     this.initialiseSea();
 
-    const smile = document.createTextNode(this.ship.itinerary.ports[0]);
-    document.getElementById("display").appendChild(smile);
-
     document.querySelector("#sailbutton").addEventListener("click", () => {
       this.setSail();
     });
   }
+
+  Controller.prototype.renderDisplay = function renderDisplay() {
+    const ship = this.ship;
+
+    const currentPort = document.createTextNode(ship.currentPort.name);
+    document.getElementById("displayOne").appendChild(currentPort);
+
+    const currentPortIndex = ship.itinerary.ports.indexOf(ship.currentPort);
+    const nextPortIndex = currentPortIndex + 1;
+    const nextPort = document.createTextNode(
+      ship.itinerary.ports[nextPortIndex].name
+    );
+    document.getElementById("displayTwo").appendChild(nextPort);
+  };
 
   Controller.prototype.initialiseSea = function initialiseSea() {
     const backgrounds = ["./images/water0.png", "./images/water1.png"];
