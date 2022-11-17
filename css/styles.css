@@ -8,15 +8,19 @@ body {
   top: 0;
   right: 0;
   color: white;
-  font-family: "Press Start 2P", cursive;
+  letter-spacing: 4px;
+  font-size: 50px;
+  font-family: "Teko", sans-serif;
 }
 
 #displayTwo {
   position: absolute;
-  top: 20px;
+  top: 45px;
   right: 0;
   color: white;
-  font-family: "Press Start 2P", cursive;
+  letter-spacing: 4px;
+  font-size: 50px;
+  font-family: "Teko", sans-serif;
 }
 
 body {
@@ -62,7 +66,8 @@ body {
   left: 0;
   width: 100%;
   background-color: yellow;
-  font-family: "Press Start 2P", cursive;
+  font-size: 20px;
+  font-family: "Teko", sans-serif;
 }
 
 #sailbutton:focus {

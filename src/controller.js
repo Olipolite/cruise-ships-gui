@@ -80,7 +80,7 @@
 
         document.getElementById(
           "displayOne"
-        ).textContent = `Current Port:${ship.currentPort.name}`;
+        ).textContent = `Current Port: ${ship.currentPort.name}`;
 
         const currentPortIndex = ship.itinerary.ports.indexOf(ship.currentPort);
         const nextPortIndex = currentPortIndex + 1;
